@@ -4,8 +4,6 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        //Console.OutputEncoding = System.Text.Encoding.Unicode;
-
         string input = """
                        ........
                        ........
@@ -23,7 +21,6 @@ internal class Program
             Console.ReadLine();
             board = Engine.Tick(board);
         }
-
     }
 
     private static void ShowBoard(bool[,] board)
@@ -40,7 +37,6 @@ internal class Program
                 else
                 {
                     Console.Write('.');
-                    //Console.Write('⦁'); TODO: Megoldani hogy megjelenjen
                 }
 
             }

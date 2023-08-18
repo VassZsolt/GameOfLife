@@ -1,7 +1,7 @@
 namespace GameOfLife.UnitTest;
 
 public class EngineTests
-    // TODO: More test cases 
+// TODO: More test cases such as https://playgameoflife.com/info rules
 {
     [Fact]
     public void ToadStep1()
