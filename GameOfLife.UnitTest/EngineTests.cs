@@ -6,7 +6,6 @@ public class EngineTests
     [Fact]
     public void ToadStep1()
     {
-        // Arrange
         const string input = """
         ......
         .xxx..
@@ -14,12 +13,6 @@ public class EngineTests
         ......
         """;
 
-        bool[,] boardBefore = Engine.ParseBoard(input);
-
-        // Act
-        bool[,] boardAfter = Engine.Tick(boardBefore);
-
-        // Assert
         const string expectedOutput = """
         ..x...
         .x..x.
@@ -27,14 +20,12 @@ public class EngineTests
         ...x..
         """;
 
-        bool[,] expectedBoard = Engine.ParseBoard(expectedOutput);
-        Assert.Equal(expectedBoard, boardAfter);
+        TestOneTick(input, expectedOutput);
     }
 
     [Fact]
     public void ToadStep2()
     {
-        // Arrange
         const string input = """
         ..x...
         .x..x.
@@ -42,12 +33,6 @@ public class EngineTests
         ...x..
         """;
 
-        bool[,] boardBefore = Engine.ParseBoard(input);
-
-        // Act
-        bool[,] boardAfter = Engine.Tick(boardBefore);
-
-        // Assert
         const string expectedOutput = """
         ......
         .xxx..
@@ -55,6 +40,15 @@ public class EngineTests
         ......
         """;
 
+        TestOneTick(input, expectedOutput);
+    }
+
+    private static void TestOneTick(string input, string expectedOutput)
+    {
+        bool[,] boardBefore = Engine.ParseBoard(input);
+        
+        bool[,] boardAfter = Engine.Tick(boardBefore);
+        
         bool[,] expectedBoard = Engine.ParseBoard(expectedOutput);
         Assert.Equal(expectedBoard, boardAfter);
     }
