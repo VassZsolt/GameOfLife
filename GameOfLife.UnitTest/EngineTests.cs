@@ -123,6 +123,47 @@ public class EngineTests
     }
 
     [Fact]
+    public void TwoDiagonalNeighbor()
+    {
+        // Test of rule 3, each cell with two or three neighbors survives
+        //Middle should survive
+        const string input = """
+        x..
+        .x.
+        ..x
+        """;
+
+        const string expectedOutput = """
+        ...
+        .x.
+        ...
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void ThreeNeighbor()
+    {
+        // Test of rule 3, each cell with two or three neighbors survives
+        //Middle should survive
+        const string input = """
+        x..
+        .xx
+        ..x
+        """;
+
+        const string expectedOutput = """
+        .x.
+        .xx
+        .xx
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
+
+    [Fact]
     public void ToadStep1()
     {
         const string input = """
