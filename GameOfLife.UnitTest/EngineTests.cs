@@ -84,6 +84,43 @@ public class EngineTests
         TestOneTick(input, expectedOutput);
     }
 
+    [Fact]
+    public void FourCrossNeighbor()
+    {
+        // Test of overpopulation, middle should die
+        const string input = """
+        .x.
+        xxx
+        .x.
+        """;
+
+        const string expectedOutput = """
+        xxx
+        x.x
+        xxx
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void FourDiagonalNeighbor()
+    {
+        // Test of overpopulation, middle should die
+        const string input = """
+        x.x
+        .x.
+        x.x
+        """;
+
+        const string expectedOutput = """
+        .x.
+        x.x
+        .x.
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
 
     [Fact]
     public void ToadStep1()
