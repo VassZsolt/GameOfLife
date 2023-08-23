@@ -20,7 +20,7 @@ public class EngineTests
 
     [Fact]
     public void OneHorizontalNeighbor()
-    { 
+    {
         // Test of solitude
         const string input = """
         xx
@@ -146,7 +146,7 @@ public class EngineTests
     public void ThreeNeighbor()
     {
         // Test of rule 3, each cell with two or three neighbors survives
-        //Middle should survive
+        // Middle should survive
         const string input = """
         x..
         .xx
@@ -162,6 +162,46 @@ public class EngineTests
         TestOneTick(input, expectedOutput);
     }
 
+
+    [Fact]
+    public void ShouldBecomePopulated()
+    {
+        // Test of rule 4, each cell with three neighbors becomes populated
+        // Middle should become populated
+        const string input = """
+        x..
+        ..x
+        ..x
+        """;
+
+        const string expectedOutput = """
+        ...
+        .x.
+        ...
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void ShouldBecomePopulated2()
+    {
+        // Test of rule 4, each cell with three neighbors becomes populated
+        // Middle should become populated
+        const string input = """
+        x..
+        ...
+        .xx
+        """;
+
+        const string expectedOutput = """
+        ...
+        .x.
+        ...
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
 
     [Fact]
     public void ToadStep1()
