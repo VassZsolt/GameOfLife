@@ -1,8 +1,8 @@
 namespace GameOfLife.UnitTest;
 
 public class EngineTests
-// TODO: More test cases such as https://playgameoflife.com/info rules
 {
+    #region _baseRules
     [Fact]
     public void NoNeighbor()
     {
@@ -202,7 +202,112 @@ public class EngineTests
 
         TestOneTick(input, expectedOutput);
     }
+    #endregion
 
+    #region _stillLifes
+
+    [Fact]
+    public void Block()
+    {
+        const string input = """
+        ......
+        .xx...
+        .xx...
+        ......
+        """;
+
+        const string expectedOutput = """"
+        ......
+        .xx...
+        .xx...
+        ......
+        """";
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void Beehive()
+    {
+        const string input = """
+        ..xx..
+        .x..x.
+        ..xx..
+        ......
+        """;
+
+        const string expectedOutput = """"
+        ..xx..
+        .x..x.
+        ..xx..
+        ......
+        """";
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void Loaf()
+    {
+        const string input = """
+        ..xx..
+        .x..x.
+        ..x.x.
+        ...x..
+        """;
+
+        const string expectedOutput = """"
+        ..xx..
+        .x..x.
+        ..x.x.
+        ...x..
+        """";
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void Boat()
+    {
+        const string input = """
+        .xx...
+        .x.x..
+        ..x...
+        ......
+        """;
+
+        const string expectedOutput = """"
+        .xx...
+        .x.x..
+        ..x...
+        ......
+        """";
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void Tub()
+    {
+        const string input = """
+        ..x...
+        .x.x..
+        ..x...
+        ......
+        """;
+
+        const string expectedOutput = """"
+        ..x...
+        .x.x..
+        ..x...
+        ......
+        """";
+
+        TestOneTick(input, expectedOutput);
+    }
+
+
+    #endregion
     [Fact]
     public void ToadStep1()
     {
@@ -242,6 +347,8 @@ public class EngineTests
 
         TestOneTick(input, expectedOutput);
     }
+
+
 
     private static void TestOneTick(string input, string expectedOutput)
     {
