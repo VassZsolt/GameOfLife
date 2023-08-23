@@ -203,7 +203,6 @@ public class EngineTests
         TestOneTick(input, expectedOutput);
     }
     #endregion
-
     #region _stillLifes
 
     [Fact]
@@ -308,6 +307,47 @@ public class EngineTests
 
 
     #endregion
+    #region _Oscillators
+    [Fact]
+    public void BlinkerStep1()
+    {
+        const string input = """
+        ......
+        .xxx..
+        ......
+        ......
+        """;
+
+        const string expectedOutput = """
+        ..x...
+        ..x...
+        ..x...
+        ......
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void BlinkerStep2()
+    {
+        const string input = """
+        ..x...
+        ..x...
+        ..x...
+        ......
+        """;
+
+        const string expectedOutput = """
+        ......
+        .xxx..
+        ......
+        ......
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
     [Fact]
     public void ToadStep1()
     {
@@ -348,6 +388,46 @@ public class EngineTests
         TestOneTick(input, expectedOutput);
     }
 
+    [Fact]
+    public void BeaconStep1()
+    {
+        const string input = """
+        .xx....
+        .xx....
+        ...xx..
+        ...xx..
+        """;
+
+        const string expectedOutput = """
+        .xx....
+        .x.....
+        ....x..
+        ...xx..
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+
+    [Fact]
+    public void BeaconStep2()
+    {
+        const string input = """
+        .xx....
+        .x.....
+        ....x..
+        ...xx..
+        """;
+
+        const string expectedOutput = """
+        .xx....
+        .xx....
+        ...xx..
+        ...xx..
+        """;
+
+        TestOneTick(input, expectedOutput);
+    }
+    #endregion
 
 
     private static void TestOneTick(string input, string expectedOutput)
